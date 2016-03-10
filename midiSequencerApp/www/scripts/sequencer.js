@@ -58,17 +58,50 @@ function controlloSeLaClasseEUnchecked(targetElement) {
 }
 
 
+
+var usersRef = ref.child("users");
+usersRef.set({
+    alanisawesome: {
+        date_of_birth: "June 23, 1912",
+        full_name: "Alan Turing"
+    },
+    gracehop: {
+        date_of_birth: "December 9, 1906",
+        full_name: "Grace Hopper"
+    }
+});
+
+
+
 function salva() {
     nomeCanzone = document.getElementById("nomeCanzone").value;		//prendo il nome della canzone 
+    var idCanzone = prelevailTempoComeIndice();				    	//creo questa variabile da usare per contenere il timestamp che sarà un id unico tipo indice
     var canzoneRef = myFirebaseRef.child(idCanzone);				//creo un elemento child nel db per la mia canzone
     var canzoneRefPush = canzoneRef.push();							//creo questa variabile per poter usare push che così mi creerà nomi dinamici numerici e automatici - index
-    var idCanzone = prelevailTempoComeIndice();				    	//creo questa variabile da usare per contenere il timestamp che sarà un id unico tipo indice
     canzoneRef.set({
         "nome_canzone": nomeCanzone,
         "sequenza_note": arrayCanzone,
         "id": idCanzone,
     });
+    twittaSalvataggioCanzone(nomeCanzone);
+    console.log("salvato")
 }
+
+
+/* FUNZIONI IFTT *****************/
+function twittaSalvataggioCanzone(nomeCanzone) {
+    url = "https://maker.ifttt.com/trigger/" + evento + "/with/key/" + personalKey + "?value1=" + nomeCanzone;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            document.getElementById("demo").innerHTML = xhttp.responseText;
+        }
+    };
+    xhttp.open("GET", url, true);
+    xhttp.send();
+}
+
+
 
 //preleva timecode	
 function prelevailTempoComeIndice() {
@@ -83,6 +116,7 @@ function prelevailTempoComeIndice() {
 function cercoVariabileGetInURL() {
     return window.location.search.substring(4); //tolgo i primi 4 caratteri che sono ?id=
 }
+
 
 //load 
 function pageLoad() {
@@ -116,7 +150,6 @@ function coloroTastiniCanzoneSelezionata(canzoneSelezionata) {
         }
     }
 }
-//2.3.4.0.0.0.0...
 
 function determinoIdColonna(numeroColonna) {
     if (numeroColonna < 10) {
@@ -188,5 +221,8 @@ function coloroLeNoteDiUnaCanzoneSalvata() {
         colonnaCanzoneSalvata = getElementByID(idColonnaCanzoneSalvata);
     }
 }
+
+
+
 
 pageLoad()

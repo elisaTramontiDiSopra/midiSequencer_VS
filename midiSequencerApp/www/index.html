@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="css/css.css" rel="stylesheet" type="text/css" />
+    <link href="css/fontAwsome.css" rel="stylesheet" type="text/css" />
+    <link href="css/roundButton.css" rel="stylesheet" type="text/css" />
+    <!-- FIREBASE -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sequencer</title>
+</head>
+
+<body background="../images/songList_BG.jpg">
+    <!-- FIREBASE SCRIPT -->
+    <!-- REFERENCE AL DATABASE CREATO -
+    <script> var myDataRef = new Firebase('https://blinding-inferno-1146.firebaseio.com');</script> -->
+
+    <script src="scripts/riferimentiVariabili.js"></script>
+    <script src="scripts/sequencer.js"></script>
+    <script src="scripts/songList.js"></script>
+
+
+    <div id="songList">
+        <div id="barraSuperiore">
+            <div class="round-button" onclick="recuperaTitoliCanzoni();"><div class="archivioCanzoni"></div></div>
+            <a href="sequencer.html" alt="Crea una nuova canzone"><div class="round-button"><div class="nuovaCanzone"></div></div></a>
+        </div>
+
+
+
+    </div>
+
+
+</body>
+</html>

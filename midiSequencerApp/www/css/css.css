@@ -1,0 +1,66 @@
+﻿/* CSS crunched with Crunch - http://crunchapp.net/ */
+html,body{height:100%}
+body{
+    margin:0;
+    //background-image: url("../images/songList_BG.jpg");
+    background-size: cover;
+}
+/*#sequencer{background-color:#30343d;width:100%;margin:auto;padding:10px;height:auto;overflow:hidden}*/
+#controlliSalvataggio{
+    //margin:15px
+}
+.inputSong{
+    border:none;
+    border-bottom:solid 2px white !important;
+    background-color:#30343d;
+    color:white;
+    width:500px;
+    margin: 8px 5px 0 0;
+}
+input[type=text]{font-family:courier;padding:0px;height:20px;margin:5px;height:22px;width: 80%;
+    float: left;}
+.pulsante{background-color:#555;color:white;width:50px;padding:5px 25px;display:inline;margin:10px;border:1px solid #7a7a7a}
+.colonna{float:left}
+#colonnaLabel{float:left;width:100px;color:white}
+.colonnaLabel>div{height:32px;margin:5px;display:flex;align-items:center;justify-content:center}
+.colonna>div{display:block;width:32px;height:32px;margin:5px 2px;border-radius:5px}
+.unchecked{background-color:#30343d !important;border:1px solid}
+.checked{border:solid 1px #30343d}
+.nota1{border:solid 1px #44083c;background-color:#44083c}
+.nota2{border:solid 1px #710162;background-color:#710162}
+.nota3{border:solid 1px #a12a5e;background-color:#a12a5e}
+.nota4{border:solid 1px #ed0345;background-color:#ed0345}
+.nota5{border:solid 1px #d61111;background-color:#d61111}
+.nota6{border:solid 1px #ef6a32;background-color:#ef6a32}
+.nota7{border:solid 1px #fbbf45;background-color:#fbbf45}
+.nota8{border:solid 1px #aad962;background-color:#aad962}
+.nota9{border:solid 1px #03c383;background-color:#03c383}
+.nota10{border:solid 1px #03c3b3;background-color:#03c3b3}
+.nota11{border:solid 1px #046a8f;background-color:#046a8f}
+.nota12{border:solid 1px #112c7a;background-color:#112c7a}
+.nota13{border:solid 1px #111c3c;background-color:#111c3c}
+#songList{width:100%;height:100%}
+#barraSuperiore{width:100%;height:40px;background-color:rgba(255,255,255,0.7)}
+.pulsanteCanzone{background-color:rgba(255,255,255,0.8);border:1px solid white;border-radius:5px;width:40%;min-width:350px;height:50px;margin:35px 30% !important;display:flex;display:-webkit-flex;align-content:center;justify-content:center;-webkit-flex-basis:100%;flex-basis:100%}
+
+
+
+/* NUOVO CSS ***********************************/
+body {
+	background-color:#30343d;
+	display: flex;
+	align-items: center;
+}
+#sequencer{
+	padding: 10px;
+	//margin: 15px auto;
+	margin: auto;
+    width: 95%;
+}
+
+.clearfix::after{
+	content:"";
+	display:block;
+	height:0;
+	clear:both;
+}

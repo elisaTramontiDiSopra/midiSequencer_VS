@@ -1,0 +1,543 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="css/css.css" rel="stylesheet" type="text/css">
+    <link href="css/fontAwsome.css" rel="stylesheet" type="text/css">
+    <link href="css/roundButton.css" rel="stylesheet" type="text/css" />
+    <!-- FIREBASE -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sequencer</title>
+</head>
+
+<body>
+
+    <script src="scripts/riferimentiVariabili.js"></script>
+    <script src="scripts/sequencer.js"></script>
+
+    <div id="sequencer" class="radios clearfix">
+
+        <div id="controlliSalvataggio">
+            <input id="nomeCanzone" type="text" name="nomeCanzone" placeholder="Dai un titolo alla tua canzone per salvarla" class="inputSong" />
+            <div class="round-button" onclick="salva();"><div class="salva"></div></div>
+            <div class="round-button "><div class="play"></div></div>
+        </div>
+
+        <div id="colonnaLabel" class="colonnaLabel">
+            <div data-value="1" class="checked nota1">DO</div>
+            <div data-value="2" class="checked nota2">DO#</div>
+            <div data-value="3" class="checked nota3">RE</div>
+            <div data-value="4" class="checked nota4">RE#</div>
+            <div data-value="5" class="checked nota5">MI</div>
+            <div data-value="6" class="checked nota6">FA</div>
+            <div data-value="7" class="checked nota7">FA#</div>
+            <div data-value="8" class="checked nota8">SOL</div>
+            <div data-value="9" class="checked nota9">SOL#</div>
+            <div data-value="10" class="checked nota10">LA</div>
+            <div data-value="11" class="checked nota11">LA#</div>
+            <div data-value="12" class="checked nota12">SI</div>
+            <div data-value="13" class="checked nota13">DO</div>
+        </div>
+
+        <div id="col00" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col01" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col02" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col03" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col04" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col05" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col06" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col07" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col08" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col09" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col10" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col11" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col12" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col13" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col14" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col15" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col16" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col17" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col18" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col19" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col20" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col21" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col22" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col23" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col24" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col25" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col26" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col27" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col28" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col29" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+        <div id="col30" class="colonna">
+            <div data-value="1" class="unchecked nota1" onclick="toogle(this);"></div>
+            <div data-value="2" class="unchecked nota2" onclick="toogle(this);"></div>
+            <div data-value="3" class="unchecked nota3" onclick="toogle(this);"></div>
+            <div data-value="4" class="unchecked nota4" onclick="toogle(this);"></div>
+            <div data-value="5" class="unchecked nota5" onclick="toogle(this);"></div>
+            <div data-value="6" class="unchecked nota6" onclick="toogle(this);"></div>
+            <div data-value="7" class="unchecked nota7" onclick="toogle(this);"></div>
+            <div data-value="8" class="unchecked nota8" onclick="toogle(this);"></div>
+            <div data-value="9" class="unchecked nota9" onclick="toogle(this);"></div>
+            <div data-value="10" class="unchecked nota10" onclick="toogle(this);"></div>
+            <div data-value="11" class="unchecked nota11" onclick="toogle(this);"></div>
+            <div data-value="12" class="unchecked nota12" onclick="toogle(this);"></div>
+            <div data-value="13" class="unchecked nota13" onclick="toogle(this);"></div>
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>

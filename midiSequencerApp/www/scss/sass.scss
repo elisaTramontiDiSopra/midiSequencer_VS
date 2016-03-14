@@ -1,13 +1,14 @@
-﻿/* CSS crunched with Crunch - http://crunchapp.net/ */
-html,body{height:100%}
-body{
+﻿html, body {
+	height: 100%;
+}
+body {
     margin: 0;
     background-size: cover;
 }
 /*#sequencer{background-color:#30343d;width:100%;margin:auto;padding:10px;height:auto;overflow:hidden}*/
-#controlliSalvataggio{
+#controlliSalvataggio {
 }
-.inputSong{
+.inputSong {
     border:none;
     border-bottom:solid 2px white !important;
     background-color:#30343d;
@@ -24,7 +25,17 @@ input[type=text]{font-family:courier;padding:0px;height:20px;margin:5px;height:2
 .colonna>div{display:block;width:32px;height:32px;margin:5px 2px;border-radius:5px}
 .unchecked{background-color:#30343d !important;border:1px solid}
 .checked{border:solid 1px #30343d}
-.nota1{border:solid 1px #44083c;background-color:#44083c}
+
+@mixin colore-nota($colore) {
+    border: solid 1px $colore;
+    background-color: $colore;
+}
+
+.nota1 {
+    @include colore-nota(#44083c);
+}
+
+
 .nota2{border:solid 1px #710162;background-color:#710162}
 .nota3{border:solid 1px #a12a5e;background-color:#a12a5e}
 .nota4{border:solid 1px #ed0345;background-color:#ed0345}

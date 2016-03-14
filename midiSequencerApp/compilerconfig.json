@@ -1,0 +1,26 @@
+﻿[
+  {
+    "outputFile": "www/scss/pulsanti.css",
+    "inputFile": "www/scss/pulsanti.sass"
+  },
+  {
+    "outputFile": "www/scss/pulsanti.css",
+    "inputFile": "www/scss/pulsanti.scss"
+  },
+  {
+    "outputFile": "www/scss/pulsanti2.css",
+    "inputFile": "www/scss/pulsanti2.sass"
+  },
+  {
+    "outputFile": "www/scss/pulsanti2.css",
+    "inputFile": "www/scss/pulsanti2.scss"
+  },
+  {
+    "outputFile": "www/scss/sass.css",
+    "inputFile": "www/scss/sass.sass"
+  },
+  {
+    "outputFile": "www/scss/sass.css",
+    "inputFile": "www/scss/sass.scss"
+  }
+]

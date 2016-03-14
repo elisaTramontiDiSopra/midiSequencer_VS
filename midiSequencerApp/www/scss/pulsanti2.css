@@ -1,0 +1,54 @@
+/*
+Error: Invalid CSS after "    background: ": expected expression (e.g. 1px, bold), was "@include backgr..."
+        on line 50 of C:\Users\.root\Documents\midiSequencer_VS\midiSequencerApp\www\scss\pulsanti2.scss
+
+45: }
+46: 
+47: @mixin glowingEffect {
+48:     background-color: rgba(76,76,76,1);
+49:     /* background: @include filter-gradient (#4c4c4c, #131313, horizontal); *\/
+50:     background: @include background-image (radial-gradient(center, ellipse cover, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 0%, rgba(71,71,71,1) 39%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%));
+51: }
+52: 
+53: .round-button:hover {
+54:     background: #B8D811;
+55:     @include glowingEffect;
+
+Backtrace:
+C:\Users\.root\Documents\midiSequencer_VS\midiSequencerApp\www\scss\pulsanti2.scss:50
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:1165:in `expected'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/script/lexer.rb:220:in `expected!'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/script/parser.rb:572:in `assert_expr'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/script/parser.rb:62:in `parse'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:1025:in `sass_script'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:878:in `value!'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:753:in `block in try_declaration'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:1139:in `call'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:1139:in `rethrow'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:766:in `try_declaration'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:696:in `declaration_or_ruleset'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:661:in `block_child'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:653:in `block_contents'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:642:in `block'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:231:in `mixin_directive'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:219:in `special_directive'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:194:in `directive'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:660:in `block_child'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:653:in `block_contents'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:117:in `stylesheet'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/scss/parser.rb:42:in `parse'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/engine.rb:393:in `_to_tree'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/engine.rb:285:in `render_with_sourcemap'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/exec/sass_scss.rb:375:in `run'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/exec/sass_scss.rb:62:in `process_result'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/exec/base.rb:40:in `parse'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/lib/sass/exec/base.rb:19:in `parse!'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.3/bin/sass:13:in `<top (required)>'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/bin/sass:19:in `load'
+C:/Users/.root/AppData/Local/Temp/Mindscape/WebWorkbench/Ruby193/Ruby193/bin/sass:19:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"    background: \": expected expression (e.g. 1px, bold), was \"@include backgr...\"\A         on line 50 of C:\Users\.root\Documents\midiSequencer_VS\midiSequencerApp\www\scss\pulsanti2.scss\A \A 45: }\A 46: \A 47: @mixin glowingEffect {\A 48:     background-color: rgba(76,76,76,1);\A 49:     /* background: @include filter-gradient (#4c4c4c, #131313, horizontal); */\A 50:     background: @include background-image (radial-gradient(center, ellipse cover, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 0%, rgba(71,71,71,1) 39%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%));\A 51: }\A 52: \A 53: .round-button:hover {\A 54:     background: #B8D811;\A 55:     @include glowingEffect;"; }

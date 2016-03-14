@@ -19,7 +19,6 @@ function recuperaTitoliCanzoni() {
     });
 }
 
-
 //creo i tasti delle canzoni
 function creaTastiCanzoni(nomeCanzoneSingola, id) {
     var divCanzone = document.createElement("div");

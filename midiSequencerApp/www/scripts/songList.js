@@ -1,7 +1,6 @@
 ﻿//link al database
 //databaseLink = "https://midisequencer.firebaseio.com/";
 
-
 function recuperaTitoliCanzoni() {
     //imposto il riferimento al database	
     var myFirebaseRef = new Firebase(databaseLink);
@@ -19,7 +18,7 @@ function recuperaTitoliCanzoni() {
     });
 }
 
-//creo i tasti delle canzoni
+//creo i tasti delle canzoni con animazioni
 function creaTastiCanzoni(nomeCanzoneSingola, id) {
     //tira via i pulsantoni con l'animazione
     var pulsantoneLista= document.getElementsById("archivioCanzoni");
@@ -30,8 +29,7 @@ function creaTastiCanzoni(nomeCanzoneSingola, id) {
     pulsantoneNuovaCanzone.classList.remove("bounceInDown");
     pulsantoneNuovaCanzone.classList.add("fadeOutRight")
 
-
-
+    //creo i pulsantini per le singole canzoni
     var divCanzone = document.createElement("div");
     divCanzone.setAttribute('class', 'pulsanteCanzone fadeIn');
     songList = document.getElementById("songList");

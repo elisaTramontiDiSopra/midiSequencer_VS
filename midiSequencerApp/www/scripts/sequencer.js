@@ -57,8 +57,6 @@ function controlloSeLaClasseEUnchecked(targetElement) {
     }
 }
 
-
-
 function salva() {
     nomeCanzone = document.getElementById("nomeCanzone").value;		//prendo il nome della canzone 
     var idCanzone = prelevailTempoComeIndice();				    	//creo questa variabile da usare per contenere il timestamp che sarà un id unico tipo indice
@@ -80,8 +78,6 @@ function prelevailTempoComeIndice() {
     return id;
 }
 
-
-
 /* FUNZIONI IFTT *****************/
 function twittaSalvataggioCanzone(nomeCanzone) {
     url = "https://maker.ifttt.com/trigger/" + evento + "/with/key/" + personalKey + "?value1=" + nomeCanzone;
@@ -96,7 +92,6 @@ function twittaSalvataggioCanzone(nomeCanzone) {
 function cercoVariabileGetInURL() {
     return window.location.search.substring(4); //tolgo i primi 4 caratteri che sono ?id=
 }
-
 
 //load 
 function pageLoad() {
@@ -138,16 +133,14 @@ function pageLoad() {
 
 };
 
-function inseriscoNomeCanzoneNelInput(nomeCanzoneSelezionata) {
-    var campoInput = document.getElementById("nomeCanzone");
-    campoInput.innerHTML = nomeCanzoneSelezionata;            
-}
-
 
 //coloro i tastini e metto il nome della canzone al suo posto
 function coloroTastiniCanzoneSelezionata(canzoneSelezionata) {
+    
+    //metto il titolo della canzone nel campo input
     var nomeCanzoneSelezionata = canzoneSelezionata.nome_canzone;
-    inseriscoNomeCanzoneNelInput(nomeCanzone);
+    document.getElementById("nomeCanzone").value = (nomeCanzoneSelezionata);
+    
     var sequenzaCanzoneSelezionata = canzoneSelezionata.sequenza_note;
     for (z = 0; z < 50; z++) {
         valoreNota = sequenzaCanzoneSelezionata[z];

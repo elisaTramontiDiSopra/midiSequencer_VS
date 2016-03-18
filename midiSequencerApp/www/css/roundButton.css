@@ -15,6 +15,19 @@
     margin-left: 17vw;
     margin-top: 20vh;
 }
+
+.round-button-list:hover {
+    box-shadow: 0 0 5px #fff, 
+                0 0 10px #fff, 
+                0 0 15px #fff, 
+                0 0 20px #33ffbb, 
+                0 0 35px #33ffbb, 
+                0 0 40px #33ffbb, 
+                0 0 50px #33ffbb, 
+                0 0 75px #33ffbb;
+    background:none;
+}
+
 .round-button {
     display:block;
     width:35px;
@@ -30,6 +43,18 @@
     font-weight:bold;
     float: left;
     margin-left: 5px;
+}
+
+.round-button:hover {
+    box-shadow: 0 0 5px #fff, 
+                0 0 10px #fff, 
+                0 0 15px #fff, 
+                0 0 20px #33ffbb, 
+                0 0 35px #33ffbb, 
+                0 0 40px #33ffbb, 
+                0 0 50px #33ffbb, 
+                0 0 75px #33ffbb;
+    background: #B8D811;
 }
 
 .salva::after {
@@ -60,8 +85,19 @@
     font-weight: normal;
 }
 
-
-
-.round-button:hover, .round-button-list:hover{
-    background: #B8D811;
+.pulsanteDisabilitato {
+    color: #6F7279;
+    display:block;
+    width:35px;
+    height:35px;
+    line-height:35px;
+    border: 2px solid #6F7279;
+    border-radius: 50%;
+    color:#6F7279;
+    text-align:center;
+    text-decoration:none;
+    box-shadow: 0 0 3px gray;
+    font-weight:bold;
+    float: left;
+    margin-left: 5px;
 }

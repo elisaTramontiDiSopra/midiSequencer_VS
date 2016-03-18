@@ -102,6 +102,30 @@ function cercoVariabileGetInURL() {
 
 //load 
 function pageLoad() {
+    idURL = cercoVariabileGetInURL;
+    if (idURL !== undefined) {
+        //LA CANZONE E'CAROCATA
+        //funzione spinner
+        var canzoneSelezionata;
+        console.log('Inizio load degli oggetti');
+        recuperoValoriCanzoneSelezionata(function (snap) {
+            //console.log(snap);
+            console.log('Fine load degli oggetti');
+            //canzoneSelezionata = snap.val();			
+            //funzioneSpinner();
+            coloroTastiniCanzoneSelezionata(snap.val());
+            console.log()
+        });
+
+
+    } else {
+        //LA CANZONE E' NUOVA
+        //disabilita pulsante play
+        disattivaPulsante(pusalntePlayCanzone);
+    }
+
+
+    /*
     //funzioneSpinner();
     var canzoneSelezionata;
     console.log('Inizio load degli oggetti');
@@ -111,13 +135,22 @@ function pageLoad() {
         //canzoneSelezionata = snap.val();			
         //funzioneSpinner();
         coloroTastiniCanzoneSelezionata(snap.val());
-
-    });
+        
+    });*/
 
 };
 
+function inseriscoNomeCanzoneNelInput(nomeCanzoneSelezionata) {
+    var campoInput = document.getElementById("nomeCanzone");
+    console.log(campoInput);
+            
+}
+
+
+//coloro i tastini e metto il nome della canzone al suo posto
 function coloroTastiniCanzoneSelezionata(canzoneSelezionata) {
     var nomeCanzoneSelezionata = canzoneSelezionata.nome_canzone;
+    inseriscoNomeCanzoneNelInput(nomeCanzone);
     var sequenzaCanzoneSelezionata = canzoneSelezionata.sequenza_note;
     for (z = 0; z < 50; z++) {
         valoreNota = sequenzaCanzoneSelezionata[z];
@@ -149,24 +182,6 @@ function recuperoValoriCanzoneSelezionata(recuperaValoreSnapDellaCanzoneSelezion
     var sequenza_note = [];
     var myFirebaseReference = new Firebase(urlPerFirebase)
     myFirebaseReference.once("value", recuperaValoreSnapDellaCanzoneSelezionata);
-}
-
-
-//recupero i valori di sequenza_note
-function recuperoValoriSequenzaNote() {
-    //per mantenere la variabile idURL locale la piazzo qui dentro la funzione
-    idURL = cercoVariabileGetInURL();
-    console.log("idurl " + idURL);
-    myFirebaseRef.once('value', function (dataSnapshot) {
-        //con .val prendo tutti i dati del mio database che si trovano dentro a datasnapshot e le ottengo come oggetto JS
-        var tutteLeCanzoni = dataSnapshot.val();
-        dataSnapshot.forEach(function (childSnapshot) {
-            //vado a prendermi i valori della canzone singola
-            var canzoneSingola = childSnapshot.val();
-            var nomeCanzoneSingola = canzoneSingola.nome_canzone;
-            var idCanzoneSingola = canzoneSingola.id;
-        });
-    });
 }
 
 //recupero i valori di sequenza_note
@@ -204,7 +219,7 @@ function coloroLeNoteDiUnaCanzoneSalvata() {
 }
 
 
-
+/*MQTT*/
 
 var client; topic; messaggioPerRaspi;
 
@@ -257,6 +272,20 @@ if (cercoVariabileGetInURL !== null) {
     //attiva le funzioni normali del sequencer
 }
 
+
+/* FUNZIONI PER QUANDO LA CANZONE E' RECUPERATA **** */
+
+//funziona per il pulsante visto che elimina la classe round-button
+//verificare se ci sia la necessità di renderla una funzione più generica
+function disattivaPulsante(idElementoDaDisattivare) {
+    elementoDaDisattivare = document.getElementById(idElementoDaDisattivare);
+    //aggiungi classe pulsanteDisabilitato
+    elementoDaDisattivare.classList.add("pulsanteDisabilitato");
+    elementoDaDisattivare.classList.remove("round-button");
+    
+    //elimina il richiamo alla funzione JS
+    
+}
 
 
 

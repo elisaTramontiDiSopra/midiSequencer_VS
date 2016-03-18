@@ -4,6 +4,7 @@
     <link href="css/css.css" rel="stylesheet" type="text/css" />
     <link href="css/fontAwsome.css" rel="stylesheet" type="text/css" />
     <link href="css/roundButton.css" rel="stylesheet" type="text/css" />
+    <link href="css/animate.css" rel="stylesheet" type="text/css" />
     <!-- FIREBASE -->
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
     <script src='https://cdn.firebase.com/js/simple-login/1.6.4/firebase-simple-login.js'></script>
@@ -24,8 +25,8 @@
 
     <div id="songList">
         <div id="barraSuperiore">
-            <div class="round-button-list" onclick="recuperaTitoliCanzoni();"><div class="archivioCanzoni"></div></div>
-            <a href="sequencer.html" alt="Crea una nuova canzone"><div class="round-button-list"><div class="nuovaCanzone"></div></div></a>
+            <div id="archivioCanzoni" class="round-button-list animated bounceInDown" onclick="recuperaTitoliCanzoni();"><div class="archivioCanzoni"></div></div>
+            <a href="sequencer.html" alt="Crea una nuova canzone"><div id="nuovaCanzone" class="round-button-list animated bounceInDown"><div class="nuovaCanzone"></div></div></a>
         </div>
 
 

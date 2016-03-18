@@ -59,8 +59,6 @@ function controlloSeLaClasseEUnchecked(targetElement) {
 
 
 
-
-
 function salva() {
     nomeCanzone = document.getElementById("nomeCanzone").value;		//prendo il nome della canzone 
     var idCanzone = prelevailTempoComeIndice();				    	//creo questa variabile da usare per contenere il timestamp che sarà un id unico tipo indice
@@ -142,8 +140,7 @@ function pageLoad() {
 
 function inseriscoNomeCanzoneNelInput(nomeCanzoneSelezionata) {
     var campoInput = document.getElementById("nomeCanzone");
-    console.log(campoInput);
-            
+    campoInput.innerHTML = nomeCanzoneSelezionata;            
 }
 
 

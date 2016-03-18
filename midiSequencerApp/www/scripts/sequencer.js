@@ -4,6 +4,8 @@
 arrayCanzone = new Array(numCol);
 for (a = 0; a < numCol; a++) { arrayCanzone[a] = 0; };									//creo un array vuoto per la canzone e assegno valore 0 a tutte le posizioni
 
+/* FUNZIONI NUOVA CANZONE ************************/
+
 //toggle function for buttons
 function toogle(targetElement) {
     //trovo la colonna, l'indice della colonna e lo metto in T come numero intero
@@ -97,7 +99,7 @@ function cercoVariabileGetInURL() {
 function pageLoad() {
     idURL = cercoVariabileGetInURL;
     if (idURL !== undefined) {
-        //LA CANZONE E'CAROCATA
+        //LA CANZONE E'CARICATA
         //funzione spinner
         var canzoneSelezionata;
         console.log('Inizio load degli oggetti');
@@ -106,11 +108,11 @@ function pageLoad() {
             console.log('Fine load degli oggetti');
             //canzoneSelezionata = snap.val();			
             //funzioneSpinner();
+            //cambia il pulsante SALVA in pulsante AGGIORNA con relatio cambio di funzione
+
             coloroTastiniCanzoneSelezionata(snap.val());
-            console.log()
+            
         });
-
-
     } else {
         //LA CANZONE E' NUOVA
         //disabilita pulsante play
@@ -165,6 +167,56 @@ function determinoIdColonna(numeroColonna) {
     return colonnaId;
 }
 
+
+/* FUNZIONI PER QUANDO LA CANZONE E' RECUPERATA **** */
+
+//funziona per il pulsante visto che elimina la classe round-button
+//verificare se ci sia la necessità di renderla una funzione più generica
+function disattivaPulsante(idElementoDaDisattivare) {
+    elementoDaDisattivare = document.getElementById(idElementoDaDisattivare);
+    //aggiungi classe pulsanteDisabilitato
+    elementoDaDisattivare.classList.add("pulsanteDisabilitato");
+    elementoDaDisattivare.classList.remove("round-button");
+    
+    //elimina il richiamo alla funzione JS
+    
+}
+
+
+
+/************* DA VEDEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE FUNZIONE AGGIORNA ***********
+function aggiorna() {
+    nomeCanzone = document.getElementById("nomeCanzone").value;		//prendo il nome della canzone 
+    //var canzoneRef = myFirebaseRef.child(idCanzone);				//creo un elemento child nel db per la mia canzone
+    var canzoneRefPush = canzoneRef.push();							//creo questa variabile per poter usare push che così mi creerà nomi dinamici numerici e automatici - index
+    canzoneRef.set({
+        "nome_canzone": nomeCanzone,
+        "sequenza_note": arrayCanzone,
+        //"id": idCanzone,
+    });
+    console.log("aggiornato")
+} */
+
+function cambiaPulsanteDaSalvaAdAggiorna() {
+
+    var pulsanteSalva = document.getElementById("pusanteSalvaCanzone");
+
+    //rimuovo il div salva dentro al pulsante salva, in pratica rimuovo il div che visualizza l'icona
+    divSalvaInterno = document.getElementById("divSalvaInterno");
+    pulsanteSalva.removeChild(divSalvaInterno);
+    
+    //metto il div aggiorna dentro il div pulsante salva
+    pulsanteAggiorna = document.createElement("div");
+    pulsanteAggiorna.setAttribute('class', 'aggiorna');
+    pulsanteSalva.appendChild(pulsanteAggiorna);
+
+    //elimino il richiamo alla funzione salva e metto quello alla funzione aggiorna
+    var target = document.getElementById("pusanteSalvaCanzone");
+    target.setAttribute("onclick", 'aggiorna();')
+}
+
+
+
 //recupero i valori della canzone selezionata ---> idURL, sequenza_note, nome_canzone;
 function recuperoValoriCanzoneSelezionata(recuperaValoreSnapDellaCanzoneSelezionata) {
     idURL = cercoVariabileGetInURL();
@@ -209,6 +261,7 @@ function coloroLeNoteDiUnaCanzoneSalvata() {
 }
 
 
+
 /*MQTT*/
 
 var client; topic; messaggioPerRaspi;
@@ -248,35 +301,6 @@ function onConnectionLost(responseObject) {
 function onMessageArrived(message) {
     console.log("onMessageArrived:" + message.payloadString);
 }
-
-
-if (cercoVariabileGetInURL !== null) {
-    //se c'è un idURL la canzone è già salvata quindi
-    console.log("la canzone è già salvata");
-    //attiva il tasto play
-    //attiva le funzioni mqtt
-} else {
-    console.log('la canzone non è salvata')
-    //disattiva il tasto play
-    //disattiva mqtt
-    //attiva le funzioni normali del sequencer
-}
-
-
-/* FUNZIONI PER QUANDO LA CANZONE E' RECUPERATA **** */
-
-//funziona per il pulsante visto che elimina la classe round-button
-//verificare se ci sia la necessità di renderla una funzione più generica
-function disattivaPulsante(idElementoDaDisattivare) {
-    elementoDaDisattivare = document.getElementById(idElementoDaDisattivare);
-    //aggiungi classe pulsanteDisabilitato
-    elementoDaDisattivare.classList.add("pulsanteDisabilitato");
-    elementoDaDisattivare.classList.remove("round-button");
-    
-    //elimina il richiamo alla funzione JS
-    
-}
-
 
 
 pageLoad()

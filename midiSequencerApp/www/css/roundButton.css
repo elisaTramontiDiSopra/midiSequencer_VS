@@ -64,6 +64,13 @@
     font-weight: normal;
 }
 
+.aggiorna::after {
+    font-family: FontAwesome;
+    content: "\f021";
+    font-size: 15px;
+    font-weight: normal;
+}
+
 .play::after {
     font-family: FontAwesome;
     content: "\f04b";

@@ -59,18 +59,6 @@ function controlloSeLaClasseEUnchecked(targetElement) {
 
 
 
-var usersRef = ref.child("users");
-usersRef.set({
-    alanisawesome: {
-        date_of_birth: "June 23, 1912",
-        full_name: "Alan Turing"
-    },
-    gracehop: {
-        date_of_birth: "December 9, 1906",
-        full_name: "Grace Hopper"
-    }
-});
-
 
 
 function salva() {
@@ -87,6 +75,14 @@ function salva() {
     console.log("salvato")
 }
 
+//preleva timecode	
+function prelevailTempoComeIndice() {
+    var d = new Date();
+    var id = d.getTime();
+    return id;
+}
+
+
 
 /* FUNZIONI IFTT *****************/
 function twittaSalvataggioCanzone(nomeCanzone) {
@@ -96,16 +92,6 @@ function twittaSalvataggioCanzone(nomeCanzone) {
     xhttp.send();
     console.log("twittato")
 }
-
-
-
-//preleva timecode	
-function prelevailTempoComeIndice() {
-    var d = new Date();
-    var id = d.getTime();
-    return id;
-}
-
 
 /*************************** FUNZIONI DEL SEQUENCER DI UNA CANZONE GIA' CREATA */
 //cerco le variabili che ho passato nell'URL		
@@ -138,9 +124,9 @@ function coloroTastiniCanzoneSelezionata(canzoneSelezionata) {
         if (valoreNota !== 0) {
             colonnaId = determinoIdColonna(z);
             classeCSSNota = "nota" + valoreNota;
-            console.log(classeCSSNota);
+            //console.log(classeCSSNota);
             notaDaCheckare = document.getElementById(colonnaId).getElementsByClassName(classeCSSNota)[0];
-            console.log(notaDaCheckare);
+            //console.log(notaDaCheckare);
             notaDaCheckare.classList.remove("unchecked");
             notaDaCheckare.classList.add("checked");
         }
@@ -183,7 +169,6 @@ function recuperoValoriSequenzaNote() {
     });
 }
 
-
 //recupero i valori di sequenza_note
 function recuperoValoriSequenzaNote() {
     //per mantenere la variabile idURL locale la piazzo qui dentro la funzione
@@ -216,6 +201,60 @@ function coloroLeNoteDiUnaCanzoneSalvata() {
         //seleziono la colonna
         colonnaCanzoneSalvata = getElementByID(idColonnaCanzoneSalvata);
     }
+}
+
+
+
+
+var client; topic; messaggioPerRaspi;
+
+function playCanzone() {
+    console.log("play premuto");
+    var mqttHost = 'broker.hivemq.com';
+    topic = 'midiSequencerDiomede';
+    messaggioPerRaspi = "idCanzone"+
+    client = new Paho.MQTT.Client(mqttHost, 8000, "myclientid_" + parseInt(Math.random() * 100, 10));
+    // set callback handlers
+    client.onConnectionLost = onConnectionLost;
+    client.onMessageArrived = onMessageArrived;
+
+    // connect the client
+    client.connect({ onSuccess: onConnect });
+}
+
+// called when the client connects
+function onConnect() {
+    // Once a connection has been made, make a subscription and send a message.
+    console.log("onConnect");
+    client.subscribe(topic);
+    var message = new Paho.MQTT.Message(messaggioPerRaspi);
+    message.destinationName = topic;
+    client.send(message);
+}
+
+// called when the client loses its connection
+function onConnectionLost(responseObject) {
+    if (responseObject.errorCode !== 0) {
+        console.log("onConnectionLost:" + responseObject.errorMessage);
+    }
+}
+
+// called when a message arrives
+function onMessageArrived(message) {
+    console.log("onMessageArrived:" + message.payloadString);
+}
+
+
+if (cercoVariabileGetInURL !== null) {
+    //se c'è un idURL la canzone è già salvata quindi
+    console.log("la canzone è già salvata");
+    //attiva il tasto play
+    //attiva le funzioni mqtt
+} else {
+    console.log('la canzone non è salvata')
+    //disattiva il tasto play
+    //disattiva mqtt
+    //attiva le funzioni normali del sequencer
 }
 
 

@@ -12,15 +12,14 @@
 
 <body>
 
-    <script src="scripts/riferimentiVariabili.js"></script>
-    <script src="scripts/sequencer.js"></script>
+    
 
     <div id="sequencer" class="radios clearfix">
 
         <div id="controlliSalvataggio">
             <input id="nomeCanzone" type="text" name="nomeCanzone" placeholder="Dai un titolo alla tua canzone per salvarla" class="inputSong" />
             <div class="round-button" onclick="salva();"><div class="salva"></div></div>
-            <div class="round-button "><div class="play"></div></div>
+            <div class="round-button" onclick="playCanzone();" ><div class="play"></div></div>
         </div>
 
         <div id="colonnaLabel" class="colonnaLabel">
@@ -537,7 +536,9 @@
 
     </div>
 
-
+    <script src="scripts/riferimentiVariabili.js"></script>
+    <script src="scripts/sequencer.js"></script>
+    <script src="scripts/mqttws31.js" type="text/javascript"></script>
 
 </body>
 </html>

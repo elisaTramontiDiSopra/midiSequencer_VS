@@ -3,4 +3,12 @@
   <PropertyGroup>
     <ReferenceCachePath>C:\Users\.root\AppData\Local\Temp\midiSequencerApp_refcache</ReferenceCachePath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <DebuggerFlavor>RippleNexus</DebuggerFlavor>
+    <AndroidEmulatorID>AndroidEmulator;Emulatore Android di Google</AndroidEmulatorID>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <DebuggerFlavor>AndroidEmulator</DebuggerFlavor>
+    <AndroidEmulatorID>AndroidDevice;Dispositivo</AndroidEmulatorID>
+  </PropertyGroup>
 </Project>

@@ -13,7 +13,7 @@ Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
 VarSpeedServo myservo;     
 
 //int distanza = 1000;                          //numero degli step da fargli fare
-int motorSpeed = 64;                            //variabili per movimento motori
+int motorSpeed = 64;                            //rpm stepper
 int posizioneAttuale = 0;                       //variabili per movimento motori
 int posDaRaggiungere, distanzaDaPercorrere;     //variabili per movimento motori
 int comunicazioneSeriale;
@@ -29,6 +29,9 @@ int pinServo = 6;
 void setup() {
   Serial.begin(9600); // start serial for output
   Wire.begin(SLAVE_ADDRESS);  // initialize i2c as slave  
+  
+  serverToZero();
+  
   // define callbacks for i2c communication
   Wire.onReceive(receiveDataList);
   Wire.onRequest(sendData);
@@ -188,7 +191,7 @@ int stepperCalcoloDistanza(int attuale, int posizioneDaRaggiungere) {
     int distanzaDaPercorrere = posizioneDaRaggiungere - attuale;
     Serial.print("distanzaDaPercorrere: ");
     Serial.println(distanzaDaPercorrere);
-    moveStepper(distanzaDaPercorrere);       
+    moveStepper(distanzaDaPercorrere);      
     attuale = posizioneDaRaggiungere;   
     return attuale;
 }
@@ -199,18 +202,20 @@ void serverToZero() {
 
 void moveStepper(int distanzaDaPercorrere) {
   Serial.write("funzione stepper");
-  delay(5000);
+  //delay(5000);
   myStepper.setSpeed(motorSpeed);
-  int stepDaPercorrere = distanzaDaPercorrere * 10; //calcolare i giri che servono a portare l'omino davanti alla nota
-  //myStepper.step(stepDaPercorrere); 
+  int stepDaPercorrere = distanzaDaPercorrere * 100; //calcolare i giri che servono a portare l'omino davanti alla nota
   myStepper.step(100); 
+  myservo.attach(pinServo);
+  moveServo(0, 5);      //0 velocità alta per il colpo, poi rientra in posizione zero con velocità più bassa 
+  //moveServo(0, 1);  
   //loStepperHaFinito = true;
 }
 
 void moveServo(int speedColpo, int speedRitorno) {
-  myservo.attach(pinServo);  // attaches the servo on pin 9 to the servo object 
-  myservo.write(30, speedColpo, false);        // move to 180 degrees, use a speed of 30, wait until move is complete
-  myservo.write(0, speedRitorno, true);        // move to 0 degrees, use a speed of 30, wait until move is complete
+  myservo.attach(pinServo);                    // attaches the servo on pin 9 to the servo object 
+  myservo.write(0, speedColpo, false);        // move to 180 degrees, use a speed of 30, wait until move is complete
+  myservo.write(40, speedRitorno, true);        // move to 0 degrees, use a speed of 30, wait until move is complete
   Serial.println("I moved!!!");
   //sonoAlPosto == false;
   myservo.detach();

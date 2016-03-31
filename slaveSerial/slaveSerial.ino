@@ -56,13 +56,9 @@ boolean dalleNoteAlMotorino (boolean hoRicevutoDati) {
       Serial.println(posDaRaggiungere);
       
       //calcola la distanza da percorrere in base alla posizione corrente
+      //e muovi i motorini (le funzioni sono all'interno di calcoloDistanza
       posizioneAttuale = stepperCalcoloDistanza(posizioneAttuale, posDaRaggiungere);
       
-      //muovi il motorino quanto serve)
-      /*if () {
-        moveServo();
-        }
-      */
     }
     
     //ritorna false per fermare il ciclo
@@ -103,8 +99,6 @@ void receiveData(int byteCount){
 }
 
 
-
-
 // callback for sending data
 void sendData(){
   Wire.write("ok");
@@ -133,16 +127,15 @@ void moveStepper(int distanzaDaPercorrere) {
   int stepDaPercorrere = distanzaDaPercorrere * 100; //calcolare i giri che servono a portare l'omino davanti alla nota
   myStepper.step(100); 
   myservo.attach(pinServo);
-  moveServo(0, 5);      //0 velocità alta per il colpo, poi rientra in posizione zero con velocità più bassa 
+  moveServo(0, 99);      //0 velocità alta per il colpo, poi rientra in posizione zero con velocità più bassa 
   //moveServo(0, 1);  
   loStepperHaFinito = true;
 }
 
 void moveServo(int speedColpo, int speedRitorno) {
   myservo.attach(pinServo);                    // attaches the servo on pin 9 to the servo object 
-  myservo.write(0, speedColpo, false);        // move to 180 degrees, use a speed of 30, wait until move is complete
-  myservo.write(40, speedRitorno, true);        // move to 0 degrees, use a speed of 30, wait until move is complete
-  Serial.println("I moved!!!");
+  myservo.write(0, speedColpo, false);         // move to 180 degrees, use a speed of 30, wait until move is complete
+  myservo.write(40, speedRitorno, true);       // move to 0 degrees, use a speed of 30, wait until move is complete
   loStepperHaFinito == false;
   myservo.detach();
 }

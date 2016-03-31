@@ -3,7 +3,7 @@ import requests
 import serial
 from firebase import firebase
 from firebase_token_generator import create_token
-#import mqttClientRead
+import mqttClientRead
 
 #print(idCanzone)
 
@@ -21,8 +21,8 @@ nomePorta = 'COM3'                 #cambia tra linux e windows
 auth_payload = { "uid": "uniqueId1", "auth_data": "foo", "other_auth_data": "bar" }
 token = create_token(firebaseSecret, auth_payload)
 '''
-
-firebase = firebase.FirebaseApplication(urlDB, None)
-jsonDiRispostaDaFirebase = firebase.get(idCanzone, None)
-sequenza_note = jsonDiRispostaDaFirebase['sequenza_note']
-print(sequenza_note)
+def miConnettoAFirebase(idCanzone):
+    firebase = firebase.FirebaseApplication(urlDB, None)
+    jsonDiRispostaDaFirebase = firebase.get(idCanzone, None)
+    sequenza_note = jsonDiRispostaDaFirebase['sequenza_note']
+    print(sequenza_note)

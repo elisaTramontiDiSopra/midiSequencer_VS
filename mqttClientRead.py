@@ -13,6 +13,15 @@ firebaseSecret = '04XfckMZt6tiJcgEC1exmlXToPEsxLws0kAX5cye'
 urlDB = 'https://midisequencer.firebaseio.com'
 firebase = firebase.FirebaseApplication(urlDB, None)
 
+def calcolaQuandoLaCanzoneFinisce(sequenza_note):
+    contatorePause=0
+    while (contatorePause<=5):
+        for n in sequenza_note:
+            if (sequenza_note[n]==0):
+                contatorePause++
+            else
+                contatorePause=0
+
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
@@ -25,12 +34,9 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     idCanzone = '/'+str(msg.payload.decode()[10:]) #mqtt lavora in byte 'b' quindi si fa il decode in utf-8
     print(idCanzone)
-    #client.disconnect()
     jsonDiRispostaDaFirebase = firebase.get(idCanzone, None)
-    #print(jsonDiRispostaDaFirebase)
     sequenza_note = jsonDiRispostaDaFirebase['sequenza_note']
     print(sequenza_note)
-
 
     #print("Topic",msg.topic+'Messaggio: '+str(msg.payload))
 

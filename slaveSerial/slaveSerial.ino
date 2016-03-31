@@ -76,9 +76,6 @@ void receiveDataList(int numByte){
           //Serial.print("sono alla fine");
           break;
           }
-        else{
-          //i++;
-        }
      };
   }
   hoRicevutoDati = true;

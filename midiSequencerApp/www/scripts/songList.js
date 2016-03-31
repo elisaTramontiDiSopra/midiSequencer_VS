@@ -21,11 +21,11 @@ function recuperaTitoliCanzoni() {
 //creo i tasti delle canzoni con animazioni
 function creaTastiCanzoni(nomeCanzoneSingola, id) {
     //tira via i pulsantoni con l'animazione
-    var pulsantoneLista= document.getElementsById("archivioCanzoni");
+    var pulsantoneLista = document.getElementById("archivioCanzoni");
     pulsantoneLista.classList.remove("bounceInDown");
     pulsantoneLista.classList.add("fadeOutLeft")
 
-    var pulsantoneNuovaCanzone= document.getElementsById("nuovaCanzone");
+    var pulsantoneNuovaCanzone= document.getElementById("nuovaCanzone");
     pulsantoneNuovaCanzone.classList.remove("bounceInDown");
     pulsantoneNuovaCanzone.classList.add("fadeOutRight")
 

@@ -233,7 +233,7 @@ function recuperoValoriSequenzaNote() {
     console.log("idurl " + idURL);
     myFirebaseRef.once('value', function (dataSnapshot) {
         //con .val prendo tutti i dati del mio database che si trovano dentro a datasnapshot e le ottengo come oggetto JS
-        var tutteLeCanzoni = dataSnapshot.val();
+        //var tutteLeCanzoni = dataSnapshot.val();
         dataSnapshot.forEach(function (childSnapshot) {
             //vado a prendermi i valori della canzone singola
             var canzoneSingola = childSnapshot.val();
@@ -264,13 +264,16 @@ function coloroLeNoteDiUnaCanzoneSalvata() {
 
 /*MQTT*/
 
-var client; topic; messaggioPerRaspi;
+var client;
+var topic;
+var messaggioPerRaspi;
 
 function playCanzone() {
     console.log("play premuto");
     var mqttHost = 'broker.hivemq.com';
     topic = 'midiSequencerDiomede';
-    messaggioPerRaspi = "idCanzone"+
+    messaggioPerRaspi = "idCanzone" + idURL;
+    console.log(messaggioPerRaspi);
     client = new Paho.MQTT.Client(mqttHost, 8000, "myclientid_" + parseInt(Math.random() * 100, 10));
     // set callback handlers
     client.onConnectionLost = onConnectionLost;
@@ -301,6 +304,5 @@ function onConnectionLost(responseObject) {
 function onMessageArrived(message) {
     console.log("onMessageArrived:" + message.payloadString);
 }
-
 
 pageLoad()

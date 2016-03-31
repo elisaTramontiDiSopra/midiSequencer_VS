@@ -48,9 +48,9 @@ boolean dalleNoteAlMotorino (boolean hoRicevutoDati) {
   while (hoRicevutoDati == true) {
 
     //leggi i dati dall'array
-    int lunghezzaArray = (byteArray[0])*2; 
+    int lunghezzaArray = byteArray[0]; 
    
-    for (int x=3; x<=lunghezzaArray; x=x+2) {
+    for (int x=2; x<=lunghezzaArray; x++) {
       posDaRaggiungere = byteArray[x];
       Serial.print("posDaRaggiungere ");
       Serial.println(posDaRaggiungere);
@@ -59,86 +59,15 @@ boolean dalleNoteAlMotorino (boolean hoRicevutoDati) {
       posizioneAttuale = stepperCalcoloDistanza(posizioneAttuale, posDaRaggiungere);
       
       //muovi il motorino quanto serve)
-      if () {
+      /*if () {
         moveServo();
         }
-      
+      */
     }
     
     //ritorna false per fermare il ciclo
     return hoRicevutoDati = false;
   }
-
-
-    
-/*
-    posDaRaggiungere = byteArray[1];
-    Serial.print("posDaRaggiungere dentro il FOR   ");
-    Serial.println(posDaRaggiungere);
-    Serial.print("byte[1] ");
-    Serial.println(byteArray[1]);
-    Serial.print("byte[2] ");
-    Serial.println(byteArray[2]);
-    Serial.print("byte[3] ");
-    Serial.println(byteArray[3]);*/
-    /*int b = 1;
-    while (b<=lunghezzaArray) {
-      Serial.print("b "); 
-      Serial.println(b); 
-      posDaRaggiungere = byteArray[b];
-      Serial.print("posDaRaggiungere "); 
-      Serial.println(posDaRaggiungere);
-      b = b+2;
-    }*/
-
-    /* POINTER EXPERIMENT
-    int ultimoPointer = firstPointer + (lunghezzaArray*4);
-
-    int intero = byteArray[0];
-    int* pointer = &intero;
-    int** q = &pointer;
-    for (int a = firstPointer; a <= ultimoPointer; a = a+4) {
-      //*q= a;
-      Serial.print("a ");
-      Serial.println(a);
-      //Serial.print("pointer ");
-      //Serial.println(pointer);
-      Serial.print("**q ");
-      Serial.print(**q);
-    }*/
-    
-    /*
-    int *p;
-    int pointer = (int)&byteArray[0];
-    Serial.print("pointer ");
-    Serial.println(pointer);
-    int lunghezzaArray = byteArray[0];
-    int ultimoPointer = pointer + (lunghezzaArray*4);
-    *p = pointer; //metto dentro il pointer p il valore dell'indirizzo dell'array che ho trovato prima e messo dentro pointer
-    Serial.print("*p ");
-    Serial.println(*p);
-    Serial.print("&p ");
-    //Serial.println(&p);
-
-      return hoRicevutoDati = false;
-    }
-
-    Serial.print("MOTORINO ");
-    Serial.println(hoRicevutoDati);
-    Serial.print("pointer[0] ");
-    Serial.println((int)&byteArray[0]);
-    Serial.print("byte[0] ");
-    Serial.println(byteArray[0]);
-    Serial.print("pointer[1] ");
-    Serial.println((int)&byteArray[1]);
-    Serial.print("byte[1] ");
-    Serial.println(byteArray[1]);
-    Serial.print("byte[2] ");
-    Serial.println((int)&byteArray[2]);
-    Serial.print("byte[3] ");
-    Serial.println((ints)byteArray[3]);
-    Serial.print("byte[199] ");
-    Serial.println((int)&byteArray[199]);*/
 }
 
 void receiveDataList(int numByte){
@@ -152,18 +81,11 @@ void receiveDataList(int numByte){
           break;
           }
         else{
- /*
-          Serial.print("numero ricevuto ");
-          Serial.println(byteArray[i]);
-          Serial.print("pointer indirizzo ");
-          Serial.println((int)&byteArray[i]);   //devo mettere (int) perchè se c'è uno 0 il compilatore di Arduino rischia di non sapere come intepretarlo quindi gli devo ricorcare che è un int
-*/
-          i++;
+          //i++;
         }
      };
   }
   hoRicevutoDati = true;
-  //firstPointer = (int)&byteArray[0];
 }
 
 

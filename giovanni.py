@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#autore: Giovanni Buffa
+#Elisa Pessa
 
 import time, json, threading
 import paho.mqtt.client as mqtt

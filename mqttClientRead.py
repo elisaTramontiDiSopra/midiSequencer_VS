@@ -12,8 +12,11 @@ def on_connect(client, userdata, flags, rc):
     print("Subscribed topic:" + topic)
     client.subscribe(topic)
 
+#funzione chiamata quando arriva un messaggio
 def on_message(client, userdata, msg):
-    print("Topic",msg.topic+'Messaggio: '+str(msg.payload))
+    idCanzone = '/'+str(msg.payload.decode()[10:]) #mqtt lavora in byte 'b' quindi si fa il decode in utf-8
+    print(idCanzone)
+    #print("Topic",msg.topic+'Messaggio: '+str(msg.payload))
 
 #initialize MQTT
 client = mqtt.Client()

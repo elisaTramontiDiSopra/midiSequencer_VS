@@ -18,7 +18,7 @@ int posizioneAttuale = 0;                       //variabili per movimento motori
 int posDaRaggiungere, distanzaDaPercorrere;     //variabili per movimento motori
 int comunicazioneSeriale;
 boolean loStepperHaFinito = false;
-long byteArray[100];
+int byteArray[100];
 //int byteArray[100];
 int numByte;                                     //numero dei byte trasmessi dal Master
 boolean hoRicevutoDati = false;
@@ -46,18 +46,22 @@ void loop() {
 
 boolean dalleNoteAlMotorino (boolean hoRicevutoDati) {
   while (hoRicevutoDati == true) {
-    
+
     //leggi i dati dall'array
     int lunghezzaArray = (byteArray[0])*2; 
-    for (int x=2; x<=lunghezzaArray; x=x+2) {
+   
+    for (int x=3; x<=lunghezzaArray; x=x+2) {
       posDaRaggiungere = byteArray[x];
       Serial.print("posDaRaggiungere ");
       Serial.println(posDaRaggiungere);
       
       //calcola la distanza da percorrere in base alla posizione corrente
       posizioneAttuale = stepperCalcoloDistanza(posizioneAttuale, posDaRaggiungere);
-
+      
       //muovi il motorino quanto serve)
+      if () {
+        moveServo();
+        }
       
     }
     
@@ -148,12 +152,12 @@ void receiveDataList(int numByte){
           break;
           }
         else{
-          /*
+ /*
           Serial.print("numero ricevuto ");
           Serial.println(byteArray[i]);
           Serial.print("pointer indirizzo ");
           Serial.println((int)&byteArray[i]);   //devo mettere (int) perchè se c'è uno 0 il compilatore di Arduino rischia di non sapere come intepretarlo quindi gli devo ricorcare che è un int
-          */
+*/
           i++;
         }
      };
@@ -209,7 +213,7 @@ void moveStepper(int distanzaDaPercorrere) {
   myservo.attach(pinServo);
   moveServo(0, 5);      //0 velocità alta per il colpo, poi rientra in posizione zero con velocità più bassa 
   //moveServo(0, 1);  
-  //loStepperHaFinito = true;
+  loStepperHaFinito = true;
 }
 
 void moveServo(int speedColpo, int speedRitorno) {
@@ -217,7 +221,7 @@ void moveServo(int speedColpo, int speedRitorno) {
   myservo.write(0, speedColpo, false);        // move to 180 degrees, use a speed of 30, wait until move is complete
   myservo.write(40, speedRitorno, true);        // move to 0 degrees, use a speed of 30, wait until move is complete
   Serial.println("I moved!!!");
-  //sonoAlPosto == false;
+  loStepperHaFinito == false;
   myservo.detach();
 }
 

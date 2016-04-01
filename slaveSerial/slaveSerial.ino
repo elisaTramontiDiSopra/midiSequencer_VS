@@ -28,13 +28,13 @@ int pinServo = 6;
 
 void setup() {
   Serial.begin(9600); // start serial for output
-  Wire.begin(SLAVE_ADDRESS);  // initialize i2c as slave  
-  
+  Wire.begin(SLAVE_ADDRESS);  // initialize i2c as slave
   serverToZero();
   
   // define callbacks for i2c communication
   Wire.onReceive(receiveDataList);
   Wire.onRequest(sendData);
+  
 }
 
 void loop() {

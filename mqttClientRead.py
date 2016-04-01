@@ -6,21 +6,28 @@ from firebase import firebase
 from firebase_token_generator import create_token
 
 hostBroker = "broker.hivemq.com"
-porta = 8000
+porta = 1883
 topic = "midiSequencerDiomede"
 
 firebaseSecret = '04XfckMZt6tiJcgEC1exmlXToPEsxLws0kAX5cye'
 urlDB = 'https://midisequencer.firebaseio.com'
 firebase = firebase.FirebaseApplication(urlDB, None)
+sequenzaDaInviare = []
+numeroDiPauseCheSegnanoLaFineDellaCanzone = 5
 
 def calcolaQuandoLaCanzoneFinisce(sequenza_note):
-    contatorePause=0
-    while (contatorePause<=5):
-        for n in sequenza_note:
-            if (sequenza_note[n]==0):
-                contatorePause++
-            else
-                contatorePause=0
+    contatorePause = 0
+    for n in sequenza_note:
+        if contatorePause == numeroDiPauseCheSegnanoLaFineDellaCanzone:
+            sequenzaDaInviare.append(255)
+            break
+        elif n == 0:
+            sequenzaDaInviare.append(n)
+            contatorePause += 1
+        else :
+            sequenzaDaInviare.append(n)
+            contatorePause = 0
+    #print(sequenzaDaInviare)
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
@@ -32,19 +39,18 @@ def on_connect(client, userdata, flags, rc):
 
 #funzione chiamata quando arriva un messaggio
 def on_message(client, userdata, msg):
-    idCanzone = '/'+str(msg.payload.decode()[10:]) #mqtt lavora in byte 'b' quindi si fa il decode in utf-8
+    idCanzone = '/'+str(msg.payload.decode()) #mqtt lavora in byte 'b' quindi si fa il decode in utf-8
     print(idCanzone)
     jsonDiRispostaDaFirebase = firebase.get(idCanzone, None)
     sequenza_note = jsonDiRispostaDaFirebase['sequenza_note']
     print(sequenza_note)
-
+    calcolaQuandoLaCanzoneFinisce(sequenza_note)
     #print("Topic",msg.topic+'Messaggio: '+str(msg.payload))
-
 
 
 #initialize MQTT
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
-client.connect_async("broker.hivemq.com", 1883, 60) #solo connect è bloccante, connect_asynch no
+client.connect_async(hostBroker, porta, 60) #solo connect è bloccante, connect_asynch no
 client.loop_forever()

@@ -5,6 +5,14 @@ body {
     margin: 0;
     background-size: cover;
 }
+
+@import "compass"
+background-color: #4d4d4d; // Old browsers
+@include filter-gradient (#4d4d4d, #1d1d1d, horizontal); // IE6-9 fallback on horizontal gradient
+@include background-image(radial-gradient(center, ellipse cover,  #4d4d4d 0%,#1d1d1d 100%));
+
+
+
 /*#sequencer{background-color:#30343d;width:100%;margin:auto;padding:10px;height:auto;overflow:hidden}*/
 #controlliSalvataggio {
 }

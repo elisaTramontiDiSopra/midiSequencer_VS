@@ -29,12 +29,7 @@ lunghezzaListaNote = 0
 
 def inviaSequenzaNoteAdArduino():
     bus.write_block_data(address, lunghezzaListaNote, sequenzaDaInviare)
-    time.sleep(0.2)
-
-while invioUnico ==1:
-    inviaSequenzaNoteAdArduino()
-    time.sleep(1)
-    invioUnico = 2
+    time.sleep(2)
 
 
 def calcolaQuandoLaCanzoneFinisce(sequenza_note):
@@ -67,12 +62,12 @@ def on_message(client, userdata, msg):
     sequenza_note = jsonDiRispostaDaFirebase['sequenza_note']
     print(sequenza_note)
     calcolaQuandoLaCanzoneFinisce(sequenza_note)
-    print(sequenzaDaInviare)
+    print('sequenza da inviare ', sequenzaDaInviare)
     lunghezzaListaNote = len(sequenzaDaInviare)
-    print ('lunghezza sequenza da inviare ', lunghezzaListaNote)
-    #inviaSequenzaNoteAdArduino()
-    #time.sleep(1)
-    invioUnico = 2
+    #print ('lunghezza sequenza da inviare ', lunghezzaListaNote)
+    inviaSequenzaNoteAdArduino()
+    time.sleep(1)
+    #invioUnico = 2
 
 
 #initialize MQTT

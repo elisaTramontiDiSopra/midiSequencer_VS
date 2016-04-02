@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box; }
+
+html, body {
+  height: 100vh; }
+
+body {
+  background-color: #FFEB00;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  background-size: cover; }
+
+#main {
+  width: 100vw;
+  height: 100vh; }
+  #main section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    margin: 0;
+    max-width: none;
+    flex-direction: column;
+    align-items: center; }
+
+#big-logo {
+  background-color: #FFEB00;
+  justify-content: center; }
+
+#pulsantoni {
+  background-color: #1d1d1d; }
+
+#top-bar {
+  background-color: #FFEB00;
+  width: 100%;
+  display: block;
+  min-height: 50px;
+  height: 5vw;
+  padding: 15px 0;
+  margin-bottom: 18vh; }
+
+#small-logo {
+  height: 100%;
+  float: left;
+  margin-left: 20px; }
+  #small-logo img {
+    height: 100%; }
+
+#credits {
+  float: right;
+  text-transform: uppercase;
+  color: white;
+  padding-right: 20px; }
+
+#pulsanti-grandi {
+  background-color: #1d1d1d; }

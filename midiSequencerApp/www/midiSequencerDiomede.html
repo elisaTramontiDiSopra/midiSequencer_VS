@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="css/fontAwsome.css" rel="stylesheet" type="text/css" />
+    <link href="css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="css/styleYellow.css" rel="stylesheet" type="text/css" />
+    <link href="css/pulsantiYellow.css" rel="stylesheet" type="text/css" />
+    <!-- FIREBASE -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://cdn.firebase.com/js/simple-login/1.6.4/firebase-simple-login.js'></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sequencer</title>
+</head>
+
+<body background="../images/songList_BG.jpg">
+
+    <script src="scripts/riferimentiVariabili.js"></script>
+    <script src="scripts/logUserFirebase.js"></script>
+    <script src="scripts/sequencer.js"></script>
+    <script src="scripts/songList.js"></script>
+    <script src="scripts/smooth-scroll.js"></script>
+    <script src="scripts/wow.min.js"></script>
+    <script>new WOW().init();</script>
+
+    <div id="main">
+        
+        <section id="big-logo">
+            <img class="img-logo-large" src="images/midiSequencerDiomedeLogo_500.png" alt="Diomede The Man Midi Sequencer">
+            <a data-scroll href="#top-bar"><div id="pusalnteArrowDown" class="pulsanti-piccoli animated infinite bounce"><div class="arrowDown"></div></div></a>
+        </section>
+            
+        <section id="pulsantoni">
+            <div id="top-bar" class="animated bounce">
+                <div id="small-logo">
+                    <img class="img-logo-small" src="images/midiSequencerDiomedeLogo_mini.png" alt="Diomede The Man Midi Sequencer">
+                </div>
+                <div id="credits">
+                    <p>Created by Elisa</p>
+                </div>
+            </div>
+            <div id="pulsanti-grandi">
+                <div id="archivioCanzoni" class="pulsanti-grandi wow bounceInDown" onclick="recuperaTitoliCanzoni();"><div class="archivioCanzoni"></div></div>
+                <a href="sequencer.html" alt="Crea una nuova canzone"><div id="nuovaCanzone" class="pulsanti-grandi wow bounceInDown" data-wow-offset="1"><div class="nuovaCanzone"></div></div></a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+    smoothScroll.init();
+    </script>
+
+</body>
+</html>

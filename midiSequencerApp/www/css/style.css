@@ -21,9 +21,11 @@ body {
   border-bottom: solid 2px white !important;
   color: white;
   width: 500px;
-  margin: 8px 5px 0 0; }
+  margin: 8px 5px 0 0;
+  background: none; }
 
 input[type=text] {
+  background: none;
   font-family: courier;
   padding: 0px;
   height: 20px;
@@ -42,7 +44,10 @@ input[type=text] {
   border: 1px solid #7a7a7a; }
 
 #controlliSalvataggio {
-  width: 100%; }
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; }
 
 .colonna {
   float: left; }
@@ -148,9 +153,28 @@ input[type=text] {
   flex-basis: 100%; }
 
 #sequencer {
-  padding: 10px;
+  padding: 2%;
   margin: auto;
-  width: 95%; }
+  width: 96%; }
+
+#titolo {
+  display: flex;
+  justify-content: center;
+  color: yellow;
+  font-size: 4vw;
+  text-align: center;
+  margin-top: 50px; }
+  #titolo p {
+    display: block;
+    clear: both;
+    overflow: hidden;
+    margin: 0;
+    padding: 0; }
+  #titolo p:nth-child(2) {
+    background: #fff;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-size: 60%; }
 
 .clearfix:after {
   content: "";

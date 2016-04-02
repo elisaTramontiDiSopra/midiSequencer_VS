@@ -1,0 +1,58 @@
+.pulsanti-common, .pulsanteDisabilitato, .pulsanti-piccoli, .pulsanti-grandi, .round-button {
+  display: block;
+  border: 3px solid #f5f5f5;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  float: left; }
+
+.pulsanteDisabilitato {
+  color: #6F7279 !important;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  border: 3px solid #6F7279 !important;
+  color: #6F7279 !important;
+  margin-left: 5px; }
+
+.pulsanti-piccoli {
+  width: 5vw;
+  height: 5vw;
+  line-height: 5vw;
+  font-size: 3vw; }
+
+.pulsanti-grandi {
+  width: 45vh;
+  height: 45vh;
+  line-height: 45vh;
+  font-size: 10vw;
+  margin: 0 5vw; }
+
+.pulsanti-grandi:hover {
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFEB00, 0 0 35px #FFEB00, 0 0 40px #FFEB00, 0 0 50px #FFEB00, 0 0 75px #FFEB00;
+  background: none;
+  color: #FFEB00; }
+
+.round-button {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  margin-left: 10px; }
+
+.pulsantini-after-css, .archivioCanzoni::after, .nuovaCanzone::after, .arrowDown::after {
+  font-family: FontAwesome;
+  font-weight: normal; }
+
+.archivioCanzoni::after {
+  content: "\f001"; }
+
+.nuovaCanzone::after {
+  content: "\f036"; }
+
+.arrowDown::after {
+  content: "\f063"; }
+
+.arrowDown {
+  animation-iteration-count: infinite; }

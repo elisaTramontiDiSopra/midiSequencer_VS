@@ -53,4 +53,5 @@ body {
   padding-right: 20px; }
 
 #pulsanti-grandi {
-  background-color: #1d1d1d; }
+  background-color: #1d1d1d;
+  cursor: pointer; }

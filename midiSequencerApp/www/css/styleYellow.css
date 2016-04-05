@@ -25,7 +25,8 @@ body {
   display: flex;
   align-items: center;
   margin: 0;
-  background-size: cover; }
+  background-size: cover;
+  font-family: 'Montserrat', sans-serif; }
 
 #main {
   width: 100vw;
@@ -72,11 +73,19 @@ body {
     height: 100%; }
 
 #credits {
-  font-family: Montserrat;
   text-transform: uppercase;
-  color: white;
+  color: #1d1d1d;
   padding-right: 20px;
-  width: 20vh; }
+  width: 20vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #credits p {
+    margin: 0;
+    padding: 0; }
+  #credits .mini {
+    font-size: 50%; }
 
 #pulsanti-grandi {
   background-color: #1d1d1d;
@@ -104,7 +113,8 @@ input[type=text] {
 #sequencer {
   display: flex;
   flex-direction: row;
-  padding-top: 15vh; }
+  padding-top: 15vh;
+  justify-content: center; }
   #sequencer .colonna {
     flex-direction: column; }
 
@@ -190,40 +200,32 @@ input[type=text] {
   width: 100%;
   height: 100%; }
 
+#canzoni-recuperate {
+  margin: -45vh; }
+
 .pulsanteCanzone {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid white;
+  background: #FFEB00;
+  border: 1px solid #FFEB00;
   border-radius: 5px;
-  width: 40%;
-  min-width: 350px;
-  height: 50px;
-  margin: 35px 30% !important;
+  width: 40vw;
+  height: 5vw;
+  margin: 3vh 3vw;
   display: flex;
   align-content: center;
   justify-content: center;
-  flex-basis: 100%; }
-
-#titolo {
-  display: flex;
-  justify-content: center;
-  color: yellow;
-  font-size: 4vw;
-  text-align: center;
-  margin-top: 50px; }
-  #titolo p {
-    display: block;
-    clear: both;
-    overflow: hidden;
-    margin: 0;
-    padding: 0; }
-  #titolo #titolo p:nth-child(2) {
-    background: #fff;
-    letter-spacing: .12em;
+  font-size: 130%;
+  -web-animation-delay: 1s;
+  animation-delay: 1s; }
+  .pulsanteCanzone a {
+    color: #1d1d1d;
     text-transform: uppercase;
-    font-size: 60%; }
+    text-decoration: none; }
 
 .clearfix:after {
   content: "";
   display: block;
   height: 0;
   clear: both; }
+
+.hide {
+  display: none; }

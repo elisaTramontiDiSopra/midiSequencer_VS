@@ -272,7 +272,8 @@ function playCanzone() {
     console.log("play premuto");
     var mqttHost = 'broker.hivemq.com';
     topic = 'midiSequencerDiomede';
-    messaggioPerRaspi = "idCanzone" + idURL;
+    messaggioPerRaspi = idURL;
+    //messaggioPerRaspi = "idCanzone" + idURL;
     console.log(messaggioPerRaspi);
     client = new Paho.MQTT.Client(mqttHost, 8000, "myclientid_" + parseInt(Math.random() * 100, 10));
     // set callback handlers

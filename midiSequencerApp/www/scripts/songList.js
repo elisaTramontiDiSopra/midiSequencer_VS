@@ -12,7 +12,6 @@ function recuperaTitoliCanzoni() {
             var canzoneSingola = childSnapshot.val();
             var nomeCanzoneSingola = canzoneSingola.nome_canzone;
             var idCanzoneSingola = canzoneSingola.id;
-
             creaTastiCanzoni(nomeCanzoneSingola, idCanzoneSingola);
         });
     });
@@ -24,6 +23,7 @@ function creaTastiCanzoni(nomeCanzoneSingola, id) {
     var pulsantoneLista = document.getElementById("archivioCanzoni");
     pulsantoneLista.classList.remove("bounceInDown");
     pulsantoneLista.classList.add("fadeOutLeft")
+    console.log("classi 1 cambiate");
 
     var pulsantoneNuovaCanzone= document.getElementById("nuovaCanzone");
     pulsantoneNuovaCanzone.classList.remove("bounceInDown");

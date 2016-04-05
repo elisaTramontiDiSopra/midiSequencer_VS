@@ -5,6 +5,8 @@
     <link href="css/animate.css" rel="stylesheet" type="text/css" />
     <link href="css/styleYellow.css" rel="stylesheet" type="text/css" />
     <link href="css/pulsantiYellow.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
     <!-- FIREBASE -->
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
     <script src='https://cdn.firebase.com/js/simple-login/1.6.4/firebase-simple-login.js'></script>
@@ -12,22 +14,22 @@
     <title>Sequencer</title>
 </head>
 
-<body background="../images/songList_BG.jpg">
+<body>
 
     <script src="scripts/riferimentiVariabili.js"></script>
     <script src="scripts/logUserFirebase.js"></script>
-    <script src="scripts/sequencer.js"></script>
     <script src="scripts/songListYellow.js"></script>
     <script src="scripts/smooth-scroll.js"></script>
-    <script src="scripts/wow.min.js"></script>
-    <script>new WOW().init();</script>
+
+    <!-- <script src="scripts/wow.min.js"></script> 
+    <script>new WOW().init();</script> -->
 
     <div id="main">
         
         <section id="big-logo">
-            <img class="img-logo-large" src="images/midiSequencerDiomedeLogo_500.png" alt="Diomede The Man Midi Sequencer">
+            <a href="midiSequencerDiomede.html"><img class="img-logo-large" src="images/midiSequencerDiomedeLogo_500.png" alt="Diomede The Man Midi Sequencer"></a>
             <a data-scroll href="#top-bar"><div id="pusalnteArrowDown" class="pulsanti-piccoli animated infinite bounce"><div class="arrowDown"></div></div></a>
-        </section>
+</section>
             
         <section id="pulsantoni">
             <div id="top-bar" class="animated bounce">
@@ -36,13 +38,14 @@
                 </div>
                 <div class="spacer"></div>
                 <div id="credits">
-                    <p>Created by<br />Elisa</p>
+                    <p><span class="mini clearfix">Created by</span>Elisa Pessa</p>
                 </div>
             </div>
             <div id="pulsanti-grandi">
-                <div id="archivioCanzone" class="pulsanti-grandi wow bounceInDown" onclick="recuperaTitoliCanzoni();"><div class="archivioCanzoni"></div></div>
+                <div id="archivioCanzone" class="pulsanti-grandi wow BounceInDown" onclick="recuperaTitoliCanzoni();"><div class="archivioCanzoni"></div></div>
                 <a href="midiSequencerTable.html" alt="Crea una nuova canzone"><div id="nuovaCanzone" class="pulsanti-grandi wow bounceInDown" data-wow-offset="1"><div class="nuovaCanzone"></div></div></a>
             </div>
+            <div id="canzoni-recuperate"></div>
         </section>
     </div>
 

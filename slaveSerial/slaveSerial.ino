@@ -19,7 +19,6 @@ int posDaRaggiungere, distanzaDaPercorrere;     //variabili per movimento motori
 int comunicazioneSeriale;
 boolean loStepperHaFinito = false;
 int byteArray[100];
-//int byteArray[100];
 int numByte;                                     //numero dei byte trasmessi dal Master
 boolean hoRicevutoDati = false;
 int firstPointer;               //variabile per usare i puntatori 
@@ -49,7 +48,9 @@ boolean dalleNoteAlMotorino (boolean hoRicevutoDati) {
 
     //leggi i dati dall'array
     int lunghezzaArray = byteArray[0]; 
-   
+    Serial.print("lunghezzaArray ");
+    Serial.println(lunghezzaArray);
+      
     for (int x=2; x<=lunghezzaArray; x++) {
       posDaRaggiungere = byteArray[x];
       Serial.print("posDaRaggiungere ");
@@ -57,10 +58,8 @@ boolean dalleNoteAlMotorino (boolean hoRicevutoDati) {
       
       //calcola la distanza da percorrere in base alla posizione corrente
       //e muovi i motorini (le funzioni sono all'interno di calcoloDistanza
-      posizioneAttuale = stepperCalcoloDistanza(posizioneAttuale, posDaRaggiungere);
-      
-    }
-    
+      posizioneAttuale = stepperCalcoloDistanza(posizioneAttuale, posDaRaggiungere);    
+    }   
     //ritorna false per fermare il ciclo
     return hoRicevutoDati = false;
   }
@@ -69,10 +68,18 @@ boolean dalleNoteAlMotorino (boolean hoRicevutoDati) {
 void receiveDataList(int numByte){
     int i = 0;
     hoRicevutoDati = true;
-    while(Wire.available() > 0){
+    while(Wire.available()){
       for(i=0; i < 100; i++){
         byteArray[i] = Wire.read();
         if (byteArray[i] == 255){
+          Serial.print("byteArray[i] ");
+          Serial.print(byteArray[i]);
+
+          Serial.print("numero ricevuto ");
+            Serial.println(byteArray[i]);
+            Serial.print("pointer indirizzo ");
+            Serial.println((int)&byteArray[i]);
+          
           //Serial.print("sono alla fine");
           break;
           }
